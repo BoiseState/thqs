@@ -12,6 +12,11 @@
   (expect true (types/core-java-type? 'com.sun.tools.attach.spi.AttachProvider))
   (expect true (types/core-java-type? 'jdk.jshell.Diag)))
 
+(deftest test-primitive-type-predicate
+  (expect true (@#'types/primitive-array? "java.lang.Object[]"))
+  (expect false (@#'types/primitive-array? "java.lang.Object"))
+  (expect true (@#'types/primitive-array? "int[]")))
+
 (defn ->test-TypeGraph []
   (let [java-object (types/map->Type {:name 'java.lang.Object
                                       :package-name 'java.lang

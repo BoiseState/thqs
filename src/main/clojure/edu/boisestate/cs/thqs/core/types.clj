@@ -60,15 +60,20 @@
         (.isConcrete class) :concrete
         :else (throw (Exception. "unable to determine soot-class form"))))
 
+(defn- soot-field-name [field]
+  (->> field
+       (.getType)
+       (.toQuotedString)))
+
 (defn- soot-field->Field [field]
   "Convert SootField `field` into a field map."
-  (map->Field {:name (->> field
-                          (.getType)
-                          (.toQuotedString)
-                          (symbol))
+  (map->Field {:name (symbol (soot-field-name field))
                :variable-name (.getName field)
                :accessor-level (soot-class->accessor-level field)
                }))
+
+(defn- primitive-array? [type-name]
+  (.endsWith type-name "[]"))
 
 (defn soot-class->Type [class]
   "Convert a SootClass `class` into a `type` map."
@@ -80,7 +85,9 @@
                                                                 (.getName)
                                                                 (symbol))
                                 :else nil)
-              :fields (map soot-field->Field (.getFields class))
+              :fields (->> (.getFields class)
+                           (remove (fn [f] (primitive-array? (soot-field-name f))))
+                           (map soot-field->Field))
               :form (soot-class->form class)
               :accessor-level (soot-class->accessor-level class)
               }))
