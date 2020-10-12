@@ -1,0 +1,6 @@
+Exception in thread "main" clojure.lang.ArityException: Wrong number of args (5) passed to: edu.boisestate.cs.ths.main.Main/-main
+	at clojure.lang.AFn.throwArity(AFn.java:429)
+	at clojure.lang.AFn.invoke(AFn.java:48)
+	at clojure.lang.AFn.applyToHelper(AFn.java:171)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at edu.boisestate.cs.ths.main.Main.main(Unknown Source)

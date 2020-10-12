@@ -17,6 +17,11 @@ It's also possible to use [nix][nix] to start a shell that contains the
 necessary version of [Clojure][clojure] and [Leiningen][lein] installed for use
 via `nix-shell`.
 
+## Experiments ##
+
+There is an `experiments` directory in the root of the project that contains
+the [OrgMode][orgmode] notebooks for the various experiments performed so far.
+
 ## License ##
 
 Copyright © 2020 Kenny Ballou
