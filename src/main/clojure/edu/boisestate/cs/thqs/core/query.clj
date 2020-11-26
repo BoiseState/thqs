@@ -281,3 +281,8 @@ default equivalence class (rooted on Object)."
                                        (types/type-fields B)
                                        N
                                        type-graph))
+
+(defn unrelated-classes? [a b type-graph]
+  (let [A (types/type-name a)
+        B (types/type-name b)]
+    (= (distance-from-structural-common-ancestors A B type-graph) ##Inf)))

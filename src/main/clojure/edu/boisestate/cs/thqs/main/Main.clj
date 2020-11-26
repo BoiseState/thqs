@@ -18,6 +18,11 @@
   (fn [[A B]] (into [(types/type-name A) (types/type-name B)]
                    (match? A B N type-graph))))
 
+(defn- unrelated-classes? [a b type-graph]
+  (let [A (types/type-name a)
+        B (types/type-name b)]
+    (= (query/distance-from-structural-common-ancestors A B type-graph) ##Inf)))
+
 (defn- get-package [main-class]
   (.substring main-class 0 (.lastIndexOf main-class ".")))
 
@@ -41,7 +46,7 @@
         zipped-pairs (->> (TypeGraph/application-types type-graph)
                           (vals)
                           (zip-application-classes)
-                          (take 12000))]
+                          (filter (fn [[a b]] (unrelated-classes? a b type-graph))))]
     (if flatten-hierarchy?
       (pp-results (sequence (structural-comparison N type-graph)
                             zipped-pairs))

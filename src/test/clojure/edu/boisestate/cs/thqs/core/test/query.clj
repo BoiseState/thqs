@@ -217,3 +217,17 @@
     (expect false (query/similarity-relation? U W 1 type-graph))
     (expect false (query/similarity-relation? V U 1 type-graph))
     (expect true (query/similarity-relation? V U 3 type-graph))))
+
+(deftest test-unrelated-classes?
+  (let [type-graph (types/->simple-fields-TypeGraph)
+        object (TypeGraph/get-type type-graph 'java.lang.Object)
+        A (TypeGraph/get-type type-graph 'A)
+        B (TypeGraph/get-type type-graph 'B)
+        E (TypeGraph/get-type type-graph 'E)
+        F (TypeGraph/get-type type-graph 'F)
+        G (TypeGraph/get-type type-graph 'G)
+        H (TypeGraph/get-type type-graph 'H)
+        M (TypeGraph/get-type type-graph 'M)
+        U (TypeGraph/get-type type-graph 'U)
+        V (TypeGraph/get-type type-graph 'V)]
+    (expect true (query/unrelated-classes? A B type-graph))))
