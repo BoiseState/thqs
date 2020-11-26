@@ -5,3 +5,4 @@ target
 .settings
 .nrepl*
 .lein*
+.lsp/
