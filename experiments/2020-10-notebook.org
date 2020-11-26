@@ -193,13 +193,13 @@ distance parameter?
 #+begin_src bash :results none
 experiment_dir="./experiments/out/raw/nanoxml/$(date --iso-8601=seconds)"
 mkdir -p "${experiment_dir}"
-parallel "/usr/bin/env time --format=%e --output=${experiment_dir}/{}-timing java -jar target/uberjar/ths-0.1.0-SNAPSHOT-standalone.jar /home/kb/workspace/src/edu/boisestate/cs574/homework/hw1/target/classes app.JXML2SQLApp {} > ${experiment_dir}/{}-results 2> ${experiment_dir}/{}-results.err" ::: 0 1 2 3 4
+parallel "/usr/bin/env time --format=%e --output=${experiment_dir}/{}-timing java -jar target/uberjar/thqs-0.1.0-SNAPSHOT-standalone.jar /home/kb/workspace/src/edu/boisestate/cs574/homework/hw1/target/classes app.JXML2SQLApp {} > ${experiment_dir}/{}-results 2> ${experiment_dir}/{}-results.err" ::: 0 1 2 3 4
 #+end_src
 
 #+begin_src bash :results none
 experiment_dir="./experiments/out/raw/nanoxml-no-projection/$(date --iso-8601=seconds)"
 mkdir -p "${experiment_dir}"
-parallel "/usr/bin/env time --format=%e --output=${experiment_dir}/{}-timing java -jar target/uberjar/ths-0.1.0-SNAPSHOT-standalone.jar /home/kb/workspace/src/edu/boisestate/cs574/homework/hw1/target/classes app.JXML2SQLApp {} net false > ${experiment_dir}/{}-results 2> ${experiment_dir}/{}-results.err" ::: 0 1 2 3 4
+parallel "/usr/bin/env time --format=%e --output=${experiment_dir}/{}-timing java -jar target/uberjar/thqs-0.1.0-SNAPSHOT-standalone.jar /home/kb/workspace/src/edu/boisestate/cs574/homework/hw1/target/classes app.JXML2SQLApp {} net false > ${experiment_dir}/{}-results 2> ${experiment_dir}/{}-results.err" ::: 0 1 2 3 4
 #+end_src
 
 **** string-constraint-counting
@@ -210,13 +210,13 @@ parallel "/usr/bin/env time --format=%e --output=${experiment_dir}/{}-timing jav
 #+begin_src bash :results none
 experiment_dir="./experiments/out/raw/string-constraint-counting/$(date --iso-8601=seconds)"
 mkdir -p "${experiment_dir}"
-parallel "/usr/bin/env time --format=%e --output ${experiment_dir}/{}-timing java -jar target/uberjar/ths-0.1.0-SNAPSHOT-standalone.jar /home/kb/workspace/src/edu/boisestate/string-constraint-counting/target/classes edu.boisestate.cs.SolveMain {} > ${experiment_dir}/{}-results 2> ${experiment_dir}/{}-results.err" ::: 0 1 2 3 4
+parallel "/usr/bin/env time --format=%e --output ${experiment_dir}/{}-timing java -jar target/uberjar/thqs-0.1.0-SNAPSHOT-standalone.jar /home/kb/workspace/src/edu/boisestate/string-constraint-counting/target/classes edu.boisestate.cs.SolveMain {} > ${experiment_dir}/{}-results 2> ${experiment_dir}/{}-results.err" ::: 0 1 2 3 4
 #+end_src
 
 #+begin_src bash :results none
 experiment_dir="./experiments/out/raw/string-constraint-counting-no-projection/$(date --iso-8601=seconds)"
 mkdir -p "${experiment_dir}"
-parallel "/usr/bin/env time --format=%e --output ${experiment_dir}/{}-timing java -jar target/uberjar/ths-0.1.0-SNAPSHOT-standalone.jar /home/kb/workspace/src/edu/boisestate/string-constraint-counting/target/classes edu.boisestate.cs.SolveMain {} false > ${experiment_dir}/{}-results 2> ${experiment_dir}/{}-results.err" ::: 0 1 2 3 4
+parallel "/usr/bin/env time --format=%e --output ${experiment_dir}/{}-timing java -jar target/uberjar/thqs-0.1.0-SNAPSHOT-standalone.jar /home/kb/workspace/src/edu/boisestate/string-constraint-counting/target/classes edu.boisestate.cs.SolveMain {} false > ${experiment_dir}/{}-results 2> ${experiment_dir}/{}-results.err" ::: 0 1 2 3 4
 #+end_src
 
 **** jdee-server
@@ -227,13 +227,13 @@ parallel "/usr/bin/env time --format=%e --output ${experiment_dir}/{}-timing jav
 #+begin_src bash :results none
 experiment_dir="./experiments/out/raw/jdee-server/$(date --iso-8601=seconds)"
 mkdir -p "${experiment_dir}"
-parallel "/usr/bin/env time --format=%e --output ${experiment_dir}/{}-timing java -jar target/uberjar/ths-0.1.0-SNAPSHOT-standalone.jar /home/kb/workspace/src/com/github/jdee-emacs/jdee-server/target/classes jde.parser.ParserMain {} > ${experiment_dir}/{}-results 2> ${experiment_dir}/{}-results.err" ::: 0 1 2 3 4
+parallel "/usr/bin/env time --format=%e --output ${experiment_dir}/{}-timing java -jar target/uberjar/thqs-0.1.0-SNAPSHOT-standalone.jar /home/kb/workspace/src/com/github/jdee-emacs/jdee-server/target/classes jde.parser.ParserMain {} > ${experiment_dir}/{}-results 2> ${experiment_dir}/{}-results.err" ::: 0 1 2 3 4
 #+end_src
 
 #+begin_src bash :results none
 experiment_dir="./experiments/out/raw/jdee-server-no-projection/$(date --iso-8601=seconds)"
 mkdir -p "${experiment_dir}"
-parallel  "/usr/bin/env time --format=%e --output ${experiment_dir}/{}-timing java -jar target/uberjar/ths-0.1.0-SNAPSHOT-standalone.jar /home/kb/workspace/src/com/github/jdee-emacs/jdee-server/target/classes jde.parser.ParserMain {} false > ${experiment_dir}/{}-results 2> ${experiment_dir}/{}-results.err" ::: 0 1 2 3 4
+parallel  "/usr/bin/env time --format=%e --output ${experiment_dir}/{}-timing java -jar target/uberjar/thqs-0.1.0-SNAPSHOT-standalone.jar /home/kb/workspace/src/com/github/jdee-emacs/jdee-server/target/classes jde.parser.ParserMain {} false > ${experiment_dir}/{}-results 2> ${experiment_dir}/{}-results.err" ::: 0 1 2 3 4
 #+end_src
 
 **** Eclipse Java Language Server
@@ -244,13 +244,13 @@ parallel  "/usr/bin/env time --format=%e --output ${experiment_dir}/{}-timing ja
 #+begin_src bash :results none :tangle no :eval never
 experiment_dir="./experiments/out/raw/eclipse-jdt-ls/$(date --iso-8601=seconds)"
 mkdir -p "${experiment_dir}"
-parallel  "/usr/bin/env time --format=%e --output ${experiment_dir}/{}-timing java -jar target/uberjar/ths-0.1.0-SNAPSHOT-standalone.jar /home/kb/workspace/src/org/eclipse/eclipse.jdt.ls/org.eclipse.jdt.ls.core/target/classes org.eclipse.jdt.ls.core.internal.LanguageServer {} > ${experiment_dir}/{}-results 2> ${experiment_dir}/{}-results.err" ::: 0
+parallel  "/usr/bin/env time --format=%e --output ${experiment_dir}/{}-timing java -jar target/uberjar/thqs-0.1.0-SNAPSHOT-standalone.jar /home/kb/workspace/src/org/eclipse/eclipse.jdt.ls/org.eclipse.jdt.ls.core/target/classes org.eclipse.jdt.ls.core.internal.LanguageServer {} > ${experiment_dir}/{}-results 2> ${experiment_dir}/{}-results.err" ::: 0
 #+end_src
 
 #+begin_src bash :results none :tangle no :eval never
 experiment_dir="./experiments/out/raw/eclipse-jdt-ls-no-projection/$(date --iso-8601=seconds)"
 mkdir -p "${experiment_dir}"
-parallel  "/usr/bin/env time --format=%e --output ${experiment_dir}/{}-timing java -jar target/uberjar/ths-0.1.0-SNAPSHOT-standalone.jar /home/kb/workspace/src/org/eclipse/eclipse.jdt.ls/org.eclipse.jdt.ls.core/target/classes org.eclipse.jdt.ls.core.LanguageServer {} false > ${experiment_dir}/{}-results 2> ${experiment_dir}/{}-results.err" ::: 0 1 2 3 4
+parallel  "/usr/bin/env time --format=%e --output ${experiment_dir}/{}-timing java -jar target/uberjar/thqs-0.1.0-SNAPSHOT-standalone.jar /home/kb/workspace/src/org/eclipse/eclipse.jdt.ls/org.eclipse.jdt.ls.core/target/classes org.eclipse.jdt.ls.core.LanguageServer {} false > ${experiment_dir}/{}-results 2> ${experiment_dir}/{}-results.err" ::: 0 1 2 3 4
 #+end_src
 
 **** Soot
@@ -261,7 +261,7 @@ parallel  "/usr/bin/env time --format=%e --output ${experiment_dir}/{}-timing ja
 #+begin_src bash :results none eval never :tangle no
 experiment_dir="./experiments/out/raw/soot/$(date --iso-8601=seconds)"
 mkdir -p "${experiment_dir}"
-parallel "/usr/bin/env time --format=%e --output=${experiment_dir}/{}-timing java -jar target/uberjar/ths-0.1.0-SNAPSHOT-standalone.jar /home/kb/workspace/src/org/soot-oss/soot/target/classes soot.Main {} > ${experiment_dir}/{}-results 2> ${experiment_dir}/{}-results.err" ::: 0 1 2 3 4
+parallel "/usr/bin/env time --format=%e --output=${experiment_dir}/{}-timing java -jar target/uberjar/thqs-0.1.0-SNAPSHOT-standalone.jar /home/kb/workspace/src/org/soot-oss/soot/target/classes soot.Main {} > ${experiment_dir}/{}-results 2> ${experiment_dir}/{}-results.err" ::: 0 1 2 3 4
 #+end_src
 
 **** log4j-core
@@ -272,13 +272,13 @@ parallel "/usr/bin/env time --format=%e --output=${experiment_dir}/{}-timing jav
 #+begin_src bash :results none
 experiment_dir="./experiments/out/raw/log4j-core/$(date --iso-8601=seconds)"
 mkdir -p "${experiment_dir}"
-parallel "/usr/bin/env time --format=%e --output=${experiment_dir}/{}-timing java -jar target/uberjar/ths-0.1.0-SNAPSHOT-standalone.jar /home/kb/workspace/pkg/org/apache/logging/log4j-core-2.13.3.jar org.apache.logging.log4j.core.Logger {} > ${experiment_dir}/{}-results 2> ${experiment_dir}/{}-results.err" ::: 0 1 2 3 4
+parallel "/usr/bin/env time --format=%e --output=${experiment_dir}/{}-timing java -jar target/uberjar/thqs-0.1.0-SNAPSHOT-standalone.jar /home/kb/workspace/pkg/org/apache/logging/log4j-core-2.13.3.jar org.apache.logging.log4j.core.Logger {} > ${experiment_dir}/{}-results 2> ${experiment_dir}/{}-results.err" ::: 0 1 2 3 4
 #+end_src
 
 #+begin_src bash :results none
 experiment_dir="./experiments/out/raw/log4j-core-no-projection/$(date --iso-8601=seconds)"
 mkdir -p "${experiment_dir}"
-parallel "/usr/bin/env time --format=%e --output=${experiment_dir}/{}-timing java -jar target/uberjar/ths-0.1.0-SNAPSHOT-standalone.jar /home/kb/workspace/pkg/org/apache/logging/log4j-core-2.13.3.jar org.apache.logging.log4j.core.Logger {} false > ${experiment_dir}/{}-results 2> ${experiment_dir}/{}-results.err" ::: 0 1 2 3 4
+parallel "/usr/bin/env time --format=%e --output=${experiment_dir}/{}-timing java -jar target/uberjar/thqs-0.1.0-SNAPSHOT-standalone.jar /home/kb/workspace/pkg/org/apache/logging/log4j-core-2.13.3.jar org.apache.logging.log4j.core.Logger {} false > ${experiment_dir}/{}-results 2> ${experiment_dir}/{}-results.err" ::: 0 1 2 3 4
 #+end_src
 
 
