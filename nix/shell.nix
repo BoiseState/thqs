@@ -1,6 +1,5 @@
+{ pkgs ? import <nixpkgs> {} }:
 let
-  sources = import ./sources.nix;
-  pkgs = import sources.nixpkgs {};
   jdk = pkgs.jdk11;
   clojure = pkgs.clojure;
   maven = (pkgs.maven.override {
@@ -10,10 +9,23 @@ let
     jdk = jdk;
   });
 in pkgs.mkShell {
-  buildInputs = [
+  nativeBuildInputs = with pkgs; [
     jdk
     clojure
     leiningen
     maven
+
+    parallel
+    python38
+    python38Packages.numpy
+    python38Packages.prettytable
+    tokei
+
+    bashInteractive
+  ];
+
+  buildInputs = [
+    jdk
+    clojure
   ];
 }
