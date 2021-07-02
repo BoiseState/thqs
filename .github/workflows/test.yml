@@ -1,0 +1,21 @@
+---
+name: Clojure Tests
+
+on:
+  push:
+    branches: '*'
+  pull_request:
+    branches:
+      - $default-branch
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: lein deps
+      - name: Run Tests
+        run: lein test
